@@ -7,27 +7,19 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 
 
-const DynamicList = props =>{
-    
-
+const OriginalDynamicList = () =>{
     return (
         <form>
-            <a> {props.trainees[0].trainee_level_type} </a>
-    <InputLabel id="label">Nivel de Entrenamiento</InputLabel>
-    <Select labelId="label" id="select" defaultValue={props.trainees[0].trainee_level_id} displayEmpty = "true"  >
-   
-     {props.trainees.map(trainee => 
-        
-            <MenuItem value={trainee.trainee_level_id }>{trainee.trainee_level_type}  </MenuItem>
-        
-        )}
-     
-    </Select>
+    <InputLabel id="label">Age</InputLabel>
+<Select labelId="label" id="select" value="20">
+  <MenuItem value="10">Ten</MenuItem>
+  <MenuItem value="20">Twenty</MenuItem>
+</Select>
     </form>
     );
 }
 
-export default  DynamicList;
+export default  OriginalDynamicList;
 
  /* <MenuItem value="10">{trainee_parameter_list[0].trainee_level_type}</MenuItem>
       <MenuItem value="20">{trainee_parameter_list[1].trainee_level_type}</MenuItem>
