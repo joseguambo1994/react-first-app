@@ -5,6 +5,7 @@ import './App.css';
 
 import DynamicList from './components/DynamicList'
 import ButtonRow from './components/ButtonRow'
+import MailComponent from './components/MailComponent';
 
 function App() {
  /*  const trainee_level = [
@@ -29,7 +30,7 @@ function App() {
     
     <div>
       <DynamicList trainee={trainee_level}/>
-      
+      <MailComponent />
     </div>
     
   );
