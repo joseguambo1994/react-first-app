@@ -4,26 +4,33 @@ import ReactDOM from 'react-dom';
 import './App.css';
 
 import DynamicList from './components/DynamicList'
-import OriginalDynamicList from './components/OriginalDynamicList';
 
-const trainee_level = [
-  {id:1,trainee_level_type:"beginner"},
-  {id:2,trainee_level_type:"intermediate"},
-  {id:3,trainee_level_type:"advanced"}
-];
 
 function App() {
+ /*  const trainee_level = [
+    {id:1,trainee_level_type:"novato"},
+    {id:2,trainee_level_type:"medio"},
+    {id:3,trainee_level_type:"avanzado"}
+  ]; */
   
   return (
     
     
     <div>
-      <DynamicList trainees={trainee_level} />
-      <OriginalDynamicList />
+      <DynamicList />
     </div>
-   
     
   );
 }
-
+/* 
+function App() {
+  return (
+    
+      <button type="Tipo de entrenamiento">
+        HOla
+      </button>
+ 
+  );
+}
+ */
 export default App;
