@@ -29,7 +29,7 @@ function App() {
     
     <div>
       <DynamicList trainee={trainee_level}/>
-      <ButtonRow/>
+      
     </div>
     
   );
