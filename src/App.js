@@ -12,12 +12,23 @@ function App() {
     {id:2,trainee_level_type:"medio"},
     {id:3,trainee_level_type:"avanzado"}
   ]; */
+  const trainee_level = [
+    {id:1,trainee_level_type:"beginner"},
+    {id:2,trainee_level_type:"intermediate"},
+    {id:3,trainee_level_type:"advanced"}
+  ];
+  const trainee_level_2 = [
+    {value:"beginner",label:"Beginner"},
+    {value:"intermediate",label:"Intermediate"},
+    {value:"advanced",label:"Advanced"},
+  ];
+
   
   return (
     
     
     <div>
-      <DynamicList />
+      <DynamicList trainee={trainee_level}/>
       <ButtonRow/>
     </div>
     
