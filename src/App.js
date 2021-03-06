@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import './App.css';
 
 import DynamicList from './components/DynamicList'
-
+import ButtonRow from './components/ButtonRow'
 
 function App() {
  /*  const trainee_level = [
@@ -18,6 +18,7 @@ function App() {
     
     <div>
       <DynamicList />
+      <ButtonRow/>
     </div>
     
   );
