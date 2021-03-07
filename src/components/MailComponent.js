@@ -28,16 +28,19 @@ const MailComponent = () => {
         <form>
                 
             
-                
+                <div>
                 <input type="text" name="firstName" ref={refValueFirstName} />
+                </div>
             
-            
-                
+                <div>
                 <input type="text" name="lastName" ref={refValueLastName} />
-            
-                
+                </div>
+                <div>
                 <input type="email" name="email" ref={refValueEmail}/>
+                </div>
+                <div>
             <button type="button" onClick={clickHandler}>Registrar </button>
+                </div>        
              <p>El JSON:{JSON.stringify(state) }</p>
              <p>La palabra ingresada es:{palabra}</p>
              </form>

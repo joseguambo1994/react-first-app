@@ -9,6 +9,8 @@ import MailComponent from './components/MailComponent';
 import RadioButtonComponent from './components/RadioButtonComponent';
 import DiscreteSlider from './components/SliderComponent'
 import RecommendationComponent from './components/RecommendationComponent';
+import ImageComponent from './components/ImageComponent'
+import VideoComponent from './components/VideoComponent'
 
 function App() {
  /*  const trainee_level = [
@@ -46,10 +48,17 @@ function App() {
     propicias para la ganancia de músculo. Mientras antes se empieza, más antes llegaras a tu límite genético natural.\
     Enfócate en las marcas que TÚ realices en el gimnasio o el parque, y deja de prestar a atención a tu compañero. Mientras\
     tus marcas sigan aumentando, tu ganarás músculo."}
-
   ]
+  const images=[
+    {id:1,image_url:"https://i.ibb.co/ggwPt7M/image1.jpg"},
+    {id:2,image_url:"https://i.ibb.co/5sjbXxz/image2.jpg"},
+    {id:3,image_url:"https://i.ibb.co/q1bJpBn/image3.jpg"}
+  ];
 
-
+  const videos=[
+    {id:1, video_url:"2aYrGSPZmpk"},
+    {id:2, video_url:"N8c6H5prJkA"}
+  ]
   
   return (
     
@@ -60,6 +69,8 @@ function App() {
       <RadioButtonComponent/>
       <DiscreteSlider />
       <RecommendationComponent recommendationsProps={recommendations}/>
+      <ImageComponent imagesProp={images} />
+      <VideoComponent videos={videos} />
     </div>
     
   );
