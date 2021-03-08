@@ -11,6 +11,7 @@ import DiscreteSlider from './components/SliderComponent'
 import RecommendationComponent from './components/RecommendationComponent';
 import ImageComponent from './components/ImageComponent'
 import VideoComponent from './components/VideoComponent'
+import ReactDropdown from './components/ReactDropdown';
 
 function App() {
  /*  const trainee_level = [
@@ -64,6 +65,7 @@ function App() {
     
     
     <div>
+      <ReactDropdown />
       <DynamicList trainee={trainee_level}/>
       <MailComponent />
       <RadioButtonComponent/>
