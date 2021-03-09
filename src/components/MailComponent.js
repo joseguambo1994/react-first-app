@@ -13,11 +13,16 @@ const MailComponent = () => {
 
     useEffect(() => {
         console.log("Inicio de valores useEffect")
-        console.log(refValueFirstName.current);
-        console.log(refValueLastName.current);
-        console.log(refValueEmail.current);
+        setState({
+            firstName:refValueFirstName.current.value,
+            lastName:refValueLastName.current.value,
+            email:refValueEmail.current.value
+        });
+        console.log(state.firstName);
+        console.log(state.lastName);
+        console.log(state.email);
         console.log("Acaban los valores useEffect")
-      }, [refValueFirstName]);
+      }, );
 
     const clickHandler = (e)=>{
         //e.preventDefault();
