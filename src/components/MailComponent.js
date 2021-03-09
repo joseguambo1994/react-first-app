@@ -1,4 +1,4 @@
-import React,{useState,useRef} from 'react'
+import React,{useState,useRef, useEffect} from 'react'
 
 const MailComponent = () => {
     
@@ -10,6 +10,15 @@ const MailComponent = () => {
     var refValueLastName = useRef();
     var refValueEmail = useRef();
     var palabra = "";
+
+    useEffect(() => {
+        console.log("Inicio de valores useEffect")
+        console.log(refValueFirstName.current);
+        console.log(refValueLastName.current);
+        console.log(refValueEmail.current);
+        console.log("Acaban los valores useEffect")
+      }, [refValueFirstName]);
+
     const clickHandler = (e)=>{
         //e.preventDefault();
         setState({
@@ -20,7 +29,24 @@ const MailComponent = () => {
         console.log(refValueFirstName.current.value);
         console.log(refValueLastName.current.value);
         console.log(refValueEmail.current.value);
+
         
+        fetch('http://localhost:4000/user', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(state),
+        })
+        .then(response => response.json())
+        .then(state => {
+        console.log('Success:', state);
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+        console.log("Acabo la petición POST");
+                
     }
 
     return(

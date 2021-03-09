@@ -11,14 +11,14 @@ const ReactDropdown = () =>{
   const [state, setState]  = useState([]);
 
   useEffect(()=>{
-    fetch('http://localhost:4000/test')
+    fetch('http://localhost:4000/entrenamiento/nivel')
   .then(response => response.json())
   .then(data => {
     console.log("Data fetch from API")
     console.log(data)
     setState( data.map(item=>item.trainee_level_type) );
   });
-  } );
+  },[] );
 
 
 return (
