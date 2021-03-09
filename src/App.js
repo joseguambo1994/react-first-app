@@ -10,6 +10,7 @@ import RecommendationComponent from './components/RecommendationComponent';
 import ImageComponent from './components/ImageComponent'
 import VideoComponent from './components/VideoComponent'
 import DropDownComponent from './components/DropDownComponent';
+import GenderImageComponent from './components/GenderImageComponent';
 
 function App() {
  /*  const trainee_level = [
@@ -53,7 +54,11 @@ function App() {
     {id:2,image_url:"https://i.ibb.co/5sjbXxz/image2.jpg"},
     {id:3,image_url:"https://i.ibb.co/q1bJpBn/image3.jpg"}
   ];
-
+  const images_gender=[
+    {id:1,image_url:"https://i.ibb.co/Xs2pyyg/gender-1.jpg"},
+    {id:2,image_url:"https://i.ibb.co/fQYh4T6/gender-2.jpg"}
+  ];
+ 
   const videos=[
     {id:1, video_url:"2aYrGSPZmpk"},
     {id:2, video_url:"N8c6H5prJkA"}
@@ -65,10 +70,9 @@ function App() {
     <div>
       <DropDownComponent />
       <MailComponent />
-      <RadioButtonComponent/>
+      <GenderImageComponent />
       <DiscreteSlider />
       <RecommendationComponent recommendationsProps={recommendations}/>
-      <ImageComponent imagesProp={images} />
       <VideoComponent videos={videos} />
     </div>
     
