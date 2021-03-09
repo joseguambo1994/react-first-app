@@ -18,15 +18,19 @@ const ReactDropdown = () =>{
     console.log(data)
     setState( data.map(item=>item.trainee_level_type) );
   });
-  },[] );
+  } );
 
 
 return (
   <>
-<TextField id="select" label={state[0]} value={state[0]} select>
-  <MenuItem value={state[0]}>{state[0]}</MenuItem>
-  <MenuItem value={state[1]}>{state[1]}</MenuItem>
-  <MenuItem value={state[2]}>{state[2]}</MenuItem>
+
+
+<TextField id="select" label="Nivel de entrenamiento" value={state[0]} select>
+  {state.map(
+    item=>(
+      <MenuItem value={item}>{item}</MenuItem>
+    )
+  )}
 </TextField>
 </>
   );

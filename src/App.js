@@ -3,15 +3,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
 
-import DynamicList from './components/DynamicList'
-import ButtonRow from './components/ButtonRow'
 import MailComponent from './components/MailComponent';
 import RadioButtonComponent from './components/RadioButtonComponent';
 import DiscreteSlider from './components/SliderComponent'
 import RecommendationComponent from './components/RecommendationComponent';
 import ImageComponent from './components/ImageComponent'
 import VideoComponent from './components/VideoComponent'
-import ReactDropdown from './components/ReactDropdown';
+import DropDownComponent from './components/DropDownComponent';
 
 function App() {
  /*  const trainee_level = [
@@ -65,8 +63,7 @@ function App() {
     
     
     <div>
-      <ReactDropdown />
-      <DynamicList trainee={trainee_level}/>
+      <DropDownComponent />
       <MailComponent />
       <RadioButtonComponent/>
       <DiscreteSlider />
@@ -77,15 +74,5 @@ function App() {
     
   );
 }
-/* 
-function App() {
-  return (
-    
-      <button type="Tipo de entrenamiento">
-        HOla
-      </button>
- 
-  );
-}
- */
+
 export default App;

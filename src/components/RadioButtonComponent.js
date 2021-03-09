@@ -20,9 +20,9 @@ const RadioButtonComponent = ()=>{
     return (
         <>
         <input type="radio" id="male" name="gender" value="Hombre" onChange={radioHandler} ref={radioButtonMale}/>
-        <label for="male">Male</label><br/>
+        <label for="male">Hombre</label><br/>
         <input type="radio" id="female" name="gender" value="Mujer"onChange={radioHandler} ref={radioButtonFemale}/>
-        <label for="female">Female</label>
+        <label for="female">Mujer</label>
         <p>{state}</p>
         </>
     );
