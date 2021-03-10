@@ -11,6 +11,8 @@ import ImageComponent from './components/ImageComponent'
 import VideoComponent from './components/VideoComponent'
 import DropDownComponent from './components/DropDownComponent';
 import GenderImageComponent from './components/GenderImageComponent';
+import TraineeFrequencyComponent from './components/TraineeFrequencyComponent';
+import TraineeObjectiveComponent from './components/TraineeObjectiveComponent';
 
 function App() {
  /*  const trainee_level = [
@@ -68,8 +70,9 @@ function App() {
     
     
     <div>
-      <DropDownComponent />
+      <DropDownComponent /><TraineeFrequencyComponent /><TraineeObjectiveComponent />
       <MailComponent />
+
       <GenderImageComponent />
       <DiscreteSlider />
       <RecommendationComponent recommendationsProps={recommendations}/>

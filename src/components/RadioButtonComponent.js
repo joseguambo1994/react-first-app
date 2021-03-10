@@ -30,7 +30,6 @@ const RadioButtonComponent = (props)=>{
         <label for="male">Hombre</label><br/>
         <input type="radio" id="female" name="gender" value="Mujer"onChange={radioHandler} ref={radioButtonFemale}/>
         <label for="female">Mujer</label>
-        <p>{state}</p>
         
         </>
     );

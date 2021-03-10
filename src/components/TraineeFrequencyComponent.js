@@ -6,17 +6,17 @@ import TextField from '@material-ui/core/TextField';
 import React, { useState,useEffect } from 'react';
 
 
-const ReactDropdown = () =>{
+const TraineeFrequencyComponent = () =>{
 
   const [state, setState]  = useState([]);
 
   useEffect(()=>{
-    fetch('http://localhost:4000/training/level')
+    fetch('http://localhost:4000/training/frequency')
   .then(response => response.json())
   .then(data => {
     console.log("Data fetch from API")
     console.log(data)
-    setState( data.map(item=>item.trainee_level_type) );
+    setState( data.map(item=>item.training_frequency_type) );
   });
   },[] );
 
@@ -25,7 +25,7 @@ return (
   <>
 
 
-<TextField id="select" label="Nivel de entrenamiento" value={state[0]} select>
+<TextField id="select" label="Frecuencia de entrenamiento" value={state[0]} select>
   {state.map(
     item=>(
       <MenuItem value={item}>{item}</MenuItem>
@@ -35,4 +35,4 @@ return (
 </>
   );
 }
-export default ReactDropdown;
+export default TraineeFrequencyComponent;
