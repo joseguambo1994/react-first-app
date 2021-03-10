@@ -3,10 +3,10 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect,useRef } from 'react';
 
 
-const TraineeFrequencyComponent = () =>{
+const TraineeFrequencyComponent = (props) =>{
 
   const [state, setState]  = useState([]);
 
@@ -20,19 +20,22 @@ const TraineeFrequencyComponent = () =>{
   });
   },[] );
 
+  const selectHandler = (e) =>{
+  props.parentCallback(e.target.value);
+ 
+}
+
 
 return (
   <>
-
-
-<TextField id="select" label="Frecuencia de entrenamiento" value={state[0]} select>
-  {state.map(
-    item=>(
-      <MenuItem value={item}>{item}</MenuItem>
-    )
-  )}
-</TextField>
-</>
+  <TextField id="select" label="Frecuencia" value={state[0]} onChange={selectHandler} select>
+    {state.map(
+      item=>(
+        <MenuItem value={item}>{item}</MenuItem>
+      )
+    )}
+  </TextField>
+  </>
   );
 }
 export default TraineeFrequencyComponent;

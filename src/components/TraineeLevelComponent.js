@@ -3,12 +3,12 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect,useRef } from 'react';
 
 
-const TraineeLevelComponent = () =>{
+const TraineeLevelComponent = (props) =>{
 
-  const [state, setState]  = useState(["Nivel"]);
+  const [state, setState]  = useState([]);
 
   useEffect(()=>{
     fetch('http://localhost:4000/training/level')
@@ -20,12 +20,15 @@ const TraineeLevelComponent = () =>{
   });
   },[] );
 
+const selectHandler = (e) =>{
+  props.parentCallback(e.target.value);
+}
+
+
 
 return (
   <>
-
-
-<TextField id="select" label="Nivel de entrenamiento" value={state[0]} select>
+<TextField id="select" label="Nivel" value={state[0]} onChange={selectHandler} select>
   {state.map(
     item=>(
       <MenuItem value={item}>{item}</MenuItem>

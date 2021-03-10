@@ -4,8 +4,8 @@ import React, {useEffect,useState} from 'react'
 const ImageComponent = (props)=>{
     
     const imagesGender=[
-        {gender:"mujer",image_url:"https://i.ibb.co/Xs2pyyg/gender-1.jpg"},
-        {gender:"hombre",image_url:"https://i.ibb.co/fQYh4T6/gender-2.jpg"}
+        {gender:"hombre",image_url:"https://i.ibb.co/Xs2pyyg/gender-1.jpg"},
+        {gender:"mujer",image_url:"https://i.ibb.co/fQYh4T6/gender-2.jpg"}
       ];
 
     const imagesGenderEvaluated = [];

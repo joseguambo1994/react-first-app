@@ -3,10 +3,10 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect, useRef } from 'react';
 
 
-const TraineeObjectiveComponent = () =>{
+const TraineeObjectiveComponent = (props) =>{
 
   const [state, setState]  = useState([]);
 
@@ -20,12 +20,16 @@ const TraineeObjectiveComponent = () =>{
   });
   },[] );
 
+  //const selectRef = useRef();
+  const selectHandler = e => {
+    props.parentCallback(e.target.value);
+  }
 
 return (
   <>
 
 
-<TextField id="select" label="Objetivo" value={state[0]} select>
+<TextField id="select" label="Objetivo" value={state[0]} onChange={selectHandler} select>
   {state.map(
     item=>(
       <MenuItem value={item}>{item}</MenuItem>

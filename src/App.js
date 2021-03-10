@@ -13,6 +13,7 @@ import DropDownComponent from './components/DropDownComponent';
 import GenderImageComponent from './components/GenderImageComponent';
 import TraineeFrequencyComponent from './components/TraineeFrequencyComponent';
 import TraineeObjectiveComponent from './components/TraineeObjectiveComponent';
+import TrainingComponent from './components/TrainingComponent';
 
 function App() {
  /*  const trainee_level = [
@@ -70,7 +71,7 @@ function App() {
     
     
     <div>
-      <DropDownComponent /><TraineeFrequencyComponent /><TraineeObjectiveComponent />
+      <TrainingComponent/>
       <MailComponent />
 
       <GenderImageComponent />

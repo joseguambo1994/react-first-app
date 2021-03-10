@@ -17,9 +17,9 @@ const RadioButtonComponent = (props)=>{
     const radioHandler = (e) =>{
         if(radioButtonMale.current.checked){
             setState("hombre");
-            props.parentCallback("mujer");
-        }else if(radioButtonFemale.current.checked){
             props.parentCallback("hombre");
+        }else if(radioButtonFemale.current.checked){
+            props.parentCallback("mujer");
         }
     }
     
