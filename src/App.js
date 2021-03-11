@@ -1,36 +1,19 @@
 import logo from './logo.svg';
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
 
 import MailComponent from './components/MailComponent';
-import RadioButtonComponent from './components/RadioButtonComponent';
 import DiscreteSlider from './components/SliderComponent'
 import RecommendationComponent from './components/RecommendationComponent';
-import ImageComponent from './components/ImageComponent'
 import VideoComponent from './components/VideoComponent'
-import DropDownComponent from './components/DropDownComponent';
 import GenderImageComponent from './components/GenderImageComponent';
+
 import TraineeFrequencyComponent from './components/TraineeFrequencyComponent';
 import TraineeObjectiveComponent from './components/TraineeObjectiveComponent';
-import TrainingComponent from './components/TrainingComponent';
+import TraineeLevelComponent from './components/TraineeLevelComponent';
 
 function App() {
- /*  const trainee_level = [
-    {id:1,trainee_level_type:"novato"},
-    {id:2,trainee_level_type:"medio"},
-    {id:3,trainee_level_type:"avanzado"}
-  ]; */
-  const trainee_level = [
-    {id:1,trainee_level_type:"beginner"},
-    {id:2,trainee_level_type:"intermediate"},
-    {id:3,trainee_level_type:"advanced"}
-  ];
-  const trainee_level_2 = [
-    {value:"beginner",label:"Beginner"},
-    {value:"intermediate",label:"Intermediate"},
-    {value:"advanced",label:"Advanced"},
-  ];
 
   const recommendations = [
     {id:1, recommendation_text:"Tu enfoque más importante es vigilar la alimentación. No importa cuanto\
@@ -52,28 +35,73 @@ function App() {
     Enfócate en las marcas que TÚ realices en el gimnasio o el parque, y deja de prestar a atención a tu compañero. Mientras\
     tus marcas sigan aumentando, tu ganarás músculo."}
   ]
-  const images=[
-    {id:1,image_url:"https://i.ibb.co/ggwPt7M/image1.jpg"},
-    {id:2,image_url:"https://i.ibb.co/5sjbXxz/image2.jpg"},
-    {id:3,image_url:"https://i.ibb.co/q1bJpBn/image3.jpg"}
-  ];
-  const images_gender=[
-    {id:1,image_url:"https://i.ibb.co/Xs2pyyg/gender-1.jpg"},
-    {id:2,image_url:"https://i.ibb.co/fQYh4T6/gender-2.jpg"}
-  ];
- 
+
   const videos=[
     {id:1, video_url:"2aYrGSPZmpk"},
     {id:2, video_url:"N8c6H5prJkA"}
   ]
+/*   const trainee={
+    trainee_name:"Floro Flores",
+    trainee_age:25,
+    trainee_gender:"male",
+    trainee_email:"floro@flores.com",
+    trainee_frequency_id:2,
+    trainee_level_id:1,
+    trainee_objective_id:3,  
+  } */
+  const [trainingParameters,setTrainingParameters] =useState([]);
+  const getTrainingParameters = (childData)=>{
+    setTrainingParameters(childData);
+  }
+
+  const [frequency,setFrequency] = useState("Static frequency in parent");
+    const frequencyCallbackFunction = (childFrequencyData) =>{
+        setFrequency(childFrequencyData);
+    }
+    const [level,setLevel] = useState("Static frequency in parent");
+    
+    const levelCallbackFunction = (childLevelData) =>{
+        setLevel(childLevelData);
+    }
+    const [objective,setObjective] = useState("Static frequency in parent");
+
+    const objectiveCallbackFunction = (childObjectiveData) =>{
+        setObjective(childObjectiveData);
+    }
+
+
+ /*  const [gender,setGender]=useState();
+  const getGender = (childData)=>{
+    setGender(childData);
+  }
+  const [age,setAge]=useState();
+  const getAge = (childData)=>{
+    setAge(childData);
+  }
+  const [name,setName]=useState();
+  const getName = (childData)=>{
+    setName(childData);
+  }
+  const [email,setEmail]=useState();
+  const getEmail = (childData)=>{
+    setEmail(childData);
+  } */
+  const [mailParameters,setMailParameters]=useState();
+  const getMailParameters = (childData)=>{
+    setMailParameters(childData);
+  }
   
+
   return (
     
     
     <div>
-      <TrainingComponent/>
-      <MailComponent />
-
+      <TraineeFrequencyComponent parentCallback={frequencyCallbackFunction}/>
+      <TraineeLevelComponent parentCallback={levelCallbackFunction}/>
+      <TraineeObjectiveComponent parentCallback={objectiveCallbackFunction}/>
+      <p>Value from FrequencyComp then TrainingComp then App:{frequency +" "+ level + " " + objective}</p>
+      <MailComponent parentCallback={getMailParameters}/>
+      <p>Value from Mail component then App: {mailParameters}</p>
       <GenderImageComponent />
       <DiscreteSlider />
       <RecommendationComponent recommendationsProps={recommendations}/>

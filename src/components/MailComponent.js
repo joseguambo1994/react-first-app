@@ -1,6 +1,6 @@
 import React,{useState,useRef, useEffect} from 'react'
 
-const MailComponent = () => {
+const MailComponent = (props) => {
     
 
     const [state,setState] = useState(
@@ -35,7 +35,7 @@ const MailComponent = () => {
         console.log(refValueLastName.current.value);
         console.log(refValueEmail.current.value);
 
-        
+      
         fetch('http://localhost:4000/user', {
         method: 'POST', // or 'PUT'
         headers: {
@@ -72,8 +72,6 @@ const MailComponent = () => {
                 <div>
             <button type="button" onClick={clickHandler}>Registrar </button>
                 </div>        
-             <p>El JSON:{JSON.stringify(state) }</p>
-             <p>La palabra ingresada es:{palabra}</p>
              </form>
  
     );
