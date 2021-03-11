@@ -3,14 +3,16 @@ import RadioButtonComponent from './RadioButtonComponent'
 import ImageComponent from './ImageComponent'
 
 
-const GenderImageComponent = () =>{
+const GenderImageComponent = (props) =>{
 
     const [state,setState] = useState("mujer");
 
 
     const callBackFunction = (childData) =>{
         setState(childData);
+        props.parentCallback(state);
     }
+    
    
     return (
         <>

@@ -49,43 +49,40 @@ function App() {
     trainee_level_id:1,
     trainee_objective_id:3,  
   } */
-  const [trainingParameters,setTrainingParameters] =useState([]);
-  const getTrainingParameters = (childData)=>{
-    setTrainingParameters(childData);
-  }
+
 
   const [frequency,setFrequency] = useState("Static frequency in parent");
-    const frequencyCallbackFunction = (childFrequencyData) =>{
+    const frequencyCallback = (childFrequencyData) =>{
         setFrequency(childFrequencyData);
     }
     const [level,setLevel] = useState("Static frequency in parent");
     
-    const levelCallbackFunction = (childLevelData) =>{
+    const levelCallback = (childLevelData) =>{
         setLevel(childLevelData);
     }
     const [objective,setObjective] = useState("Static frequency in parent");
 
-    const objectiveCallbackFunction = (childObjectiveData) =>{
+    const objectiveCallback = (childObjectiveData) =>{
         setObjective(childObjectiveData);
     }
 
 
- /*  const [gender,setGender]=useState();
-  const getGender = (childData)=>{
-    setGender(childData);
+  const [gender,setGender]=useState("Static gender in parent");
+  const genderCallback = (childGenderData)=>{
+    setGender(childGenderData);
   }
-  const [age,setAge]=useState();
-  const getAge = (childData)=>{
-    setAge(childData);
+  const [age,setAge]=useState("Static age in parent");
+  const ageCallback = (childAgeData)=>{
+    setAge(childAgeData);
   }
-  const [name,setName]=useState();
-  const getName = (childData)=>{
-    setName(childData);
-  }
-  const [email,setEmail]=useState();
-  const getEmail = (childData)=>{
-    setEmail(childData);
-  } */
+  // const [name,setName]=useState();
+  // const getName = (childData)=>{
+  //   setName(childData);
+  // }
+  // const [email,setEmail]=useState();
+  // const getEmail = (childData)=>{
+  //   setEmail(childData);
+  // }
   const [mailParameters,setMailParameters]=useState();
   const getMailParameters = (childData)=>{
     setMailParameters(childData);
@@ -96,14 +93,16 @@ function App() {
     
     
     <div>
-      <TraineeFrequencyComponent parentCallback={frequencyCallbackFunction}/>
-      <TraineeLevelComponent parentCallback={levelCallbackFunction}/>
-      <TraineeObjectiveComponent parentCallback={objectiveCallbackFunction}/>
+      <TraineeFrequencyComponent parentCallback={frequencyCallback}/>
+      <TraineeLevelComponent parentCallback={levelCallback}/>
+      <TraineeObjectiveComponent parentCallback={objectiveCallback}/>
       <p>Value from FrequencyComp then TrainingComp then App:{frequency +" "+ level + " " + objective}</p>
       <MailComponent parentCallback={getMailParameters}/>
       <p>Value from Mail component then App: {mailParameters}</p>
-      <GenderImageComponent />
-      <DiscreteSlider />
+      <GenderImageComponent parentCallback={genderCallback}/>
+      <p>Value from gender callback:{gender}</p>
+      <DiscreteSlider parentCallback={ageCallback}/>
+      <p>Value from age callback:{age}</p>
       <RecommendationComponent recommendationsProps={recommendations}/>
       <VideoComponent videos={videos} />
     </div>
