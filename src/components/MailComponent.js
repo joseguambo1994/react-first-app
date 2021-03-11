@@ -9,33 +9,30 @@ const MailComponent = (props) => {
     var refValueFirstName = useRef();
     var refValueLastName = useRef();
     var refValueEmail = useRef();
-    var palabra = "";
-
-    useEffect(() => {
-        console.log("Inicio de valores useEffect")
-        setState({
-            firstName:refValueFirstName.current.value,
-            lastName:refValueLastName.current.value,
-            email:refValueEmail.current.value
-        });
-        console.log(state.firstName);
-        console.log(state.lastName);
-        console.log(state.email);
-        console.log("Acaban los valores useEffect")
-      }, );
+    var firstNameValue="";
+    var lastNameValue="";
+    var emailValue="";
 
     const clickHandler = (e)=>{
-        //e.preventDefault();
-        setState({
-            firstName:refValueFirstName.current.value,
-            lastName:refValueLastName.current.value,
-            email:refValueEmail.current.value
-        });
-        console.log(refValueFirstName.current.value);
-        console.log(refValueLastName.current.value);
-        console.log(refValueEmail.current.value);
+        firstNameValue = refValueFirstName.current.value;
+        lastNameValue = refValueLastName.current.value;
+        emailValue =refValueEmail.current.value;
 
-      
+        props.parentCallback([
+            firstNameValue,
+            lastNameValue,
+            emailValue
+                ]); 
+      setState((state)=>{{
+            state.firstName = firstNameValue;
+            state.lastName = lastNameValue;
+            state.email = emailValue;
+            return state;
+        }}
+        );
+
+
+
         fetch('http://localhost:4000/user', {
         method: 'POST', // or 'PUT'
         headers: {
@@ -70,7 +67,7 @@ const MailComponent = (props) => {
                 <input type="email" name="email" ref={refValueEmail}/>
                 </div>
                 <div>
-            <button type="button" onClick={clickHandler}>Registrar </button>
+            <button type="button" onClick={clickHandler}>Enviar PDF </button>
                 </div>        
              </form>
  

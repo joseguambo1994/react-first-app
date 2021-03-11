@@ -83,9 +83,17 @@ function App() {
   // const getEmail = (childData)=>{
   //   setEmail(childData);
   // }
-  const [mailParameters,setMailParameters]=useState();
-  const getMailParameters = (childData)=>{
-    setMailParameters(childData);
+  const [mailParameters,setMailParameters]=useState(
+    {firstName:"",lastName:"",email:""}
+  );
+  const mailCallback = (childData)=>{
+    setMailParameters(
+      {
+      firstName: childData[0],
+      lastName: childData[1],
+      email:childData[2]
+      }
+    );
   }
   
 
@@ -97,8 +105,9 @@ function App() {
       <TraineeLevelComponent parentCallback={levelCallback}/>
       <TraineeObjectiveComponent parentCallback={objectiveCallback}/>
       <p>Value from FrequencyComp then TrainingComp then App:{frequency +" "+ level + " " + objective}</p>
-      <MailComponent parentCallback={getMailParameters}/>
-      <p>Value from Mail component then App: {mailParameters}</p>
+      <MailComponent parentCallback={mailCallback}/>
+      <p>Value from Mail name then App: {mailParameters.firstName+ " "+mailParameters.lastName}</p>
+      <p>Value from Mail email then App: {mailParameters.email}</p>
       <GenderImageComponent parentCallback={genderCallback}/>
       <p>Value from gender callback:{gender}</p>
       <DiscreteSlider parentCallback={ageCallback}/>
