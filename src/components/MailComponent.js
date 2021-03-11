@@ -67,7 +67,7 @@ const MailComponent = (props) => {
                 <input type="email" name="email" ref={refValueEmail}/>
                 </div>
                 <div>
-            <button type="button" onClick={clickHandler}>Enviar PDF </button>
+            <button type="button" onClick={clickHandler}>Registrar Email y nombre </button>
                 </div>        
              </form>
  

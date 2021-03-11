@@ -16,7 +16,7 @@ const TraineeObjectiveComponent = (props) =>{
   .then(data => {
     console.log("Data fetch from API")
     console.log(data)
-    setState( data.map(item=>item.trainee_objective_type) );
+    setState( (state) =>data.map(item=>item.trainee_objective_type) );
   });
   },[] );
 

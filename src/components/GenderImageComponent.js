@@ -9,7 +9,10 @@ const GenderImageComponent = (props) =>{
 
 
     const callBackFunction = (childData) =>{
-        setState(childData);
+        setState( state => {
+            state = childData;
+            return state;
+        } );
         props.parentCallback(state);
     }
     

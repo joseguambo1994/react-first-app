@@ -16,7 +16,7 @@ const TraineeLevelComponent = (props) =>{
   .then(data => {
     console.log("Data fetch from API")
     console.log(data)
-    setState( data.map(item=>item.trainee_level_type) );
+    setState( (state) => data.map(item=>item.trainee_level_type) );
   });
   },[] );
 
