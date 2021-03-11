@@ -1,5 +1,5 @@
-import React,{useState,useRef} from 'react'
-import FormControl from '@material-ui/core'
+import React,{useState,useRef, useEffect} from 'react'
+import FormControl, { setRef } from '@material-ui/core'
 import FormControlLabel from '@material-ui/core'
 import FormLabel from '@material-ui/core'
 import FormRadio from '@material-ui/core'
@@ -10,32 +10,19 @@ import RadioGroup from '@material-ui/core'
 
 const RadioButtonComponent = (props)=>{
     
-    const [state,setState] = useState("mujer");
-    const radioButtonMale = useRef();
-    const radioButtonFemale = useRef();
-
-    const radioHandler = (e) =>{
-        if(radioButtonMale.current.checked){
-            setState(state => {
-                state = "hombre";
-                return state;
-            });
-            props.parentCallback(state);
-        }else if(radioButtonFemale.current.checked){
-            setState(state =>{
-                state = "mujer";
-                return state;
-            })
-            props.parentCallback(state);
-        }
+    const selectMale = (e) =>{
+        props.parentCallback(e.target.value);
     }
-    
+    const selectFemale = (e) =>{
+        props.parentCallback(e.target.value);
+    }
+       
     return (
         <>
         
-        <input type="radio" id="male" name="gender" value="Hombre" onChange={radioHandler} ref={radioButtonMale}/>
+        <input type="radio" id="male" name="gender" value="hombre" onClick={selectMale}  />
         <label for="male">Hombre</label><br/>
-        <input type="radio" id="female" name="gender" value="Mujer"onChange={radioHandler} ref={radioButtonFemale}/>
+        <input type="radio" id="female" name="gender" value="mujer" onClick={selectFemale} />
         <label for="female">Mujer</label>
         
         </>

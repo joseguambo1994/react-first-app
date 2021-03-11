@@ -5,7 +5,7 @@ import ImageComponent from './ImageComponent'
 
 const GenderImageComponent = (props) =>{
 
-    const [state,setState] = useState("mujer");
+    const [state,setState] = useState("hombre");
 
 
     const callBackFunction = (childData) =>{
@@ -13,6 +13,7 @@ const GenderImageComponent = (props) =>{
             state = childData;
             return state;
         } );
+        console.log("gender state in GenderImage:"+state);
         props.parentCallback(state);
     }
     

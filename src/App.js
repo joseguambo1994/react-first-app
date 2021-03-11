@@ -12,7 +12,7 @@ import GenderImageComponent from './components/GenderImageComponent';
 import TraineeFrequencyComponent from './components/TraineeFrequencyComponent';
 import TraineeObjectiveComponent from './components/TraineeObjectiveComponent';
 import TraineeLevelComponent from './components/TraineeLevelComponent';
-import PdfButtonComponent from './components/PdfButtonComponent';
+import RadioButtonComponent from './components/RadioButtonComponent';
 
 function App() {
 
@@ -157,20 +157,7 @@ function App() {
     
     
     <div>
-      <PdfButtonComponent parentCallback={pdfCallback} />
-      <p>Pdf status: {pdf}</p>
       <button type="button" onClick={getTraineeData}>Download PDF</button>
-
-      <p>Trainee data starts here</p>
-      <p>{traineeData.trainee_name}</p>
-      <p>{traineeData.trainee_age}</p>
-      <p>{traineeData.trainee_gender}</p>
-      <p>{traineeData.trainee_mail}</p>
-      <p>{traineeData.trainee_frequency_id}</p>
-      <p>{traineeData.trainee_level_id}</p>
-      <p>{traineeData.trainee_objective_id}</p>
-      <p>Trainee data ends here</p>
-      
       <TraineeFrequencyComponent parentCallback={frequencyCallback}/>
       <TraineeLevelComponent parentCallback={levelCallback}/>
       <TraineeObjectiveComponent parentCallback={objectiveCallback}/>
@@ -178,7 +165,7 @@ function App() {
       <MailComponent parentCallback={mailCallback}/>
       <p>Value from Mail name then App: {mailParameters.firstName+ " "+mailParameters.lastName}</p>
       <p>Value from Mail email then App: {mailParameters.email}</p>
-      <GenderImageComponent parentCallback={genderCallback}/>
+      <RadioButtonComponent parentCallback={genderCallback}/>
       <p>Value from gender callback:{gender}</p>
       <DiscreteSlider parentCallback={ageCallback}/>
       <p>Value from age callback:{age}</p>
