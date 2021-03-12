@@ -41,16 +41,6 @@ function App() {
     {id:1, video_url:"2aYrGSPZmpk"},
     {id:2, video_url:"N8c6H5prJkA"}
   ]
-/*   const trainee={
-    trainee_name:"Floro Flores",
-    trainee_age:25,
-    trainee_gender:"male",
-    trainee_email:"floro@flores.com",
-    trainee_frequency_id:2,
-    trainee_level_id:1,
-    trainee_objective_id:3,  
-  } */
-
 
   const [frequency,setFrequency] = useState("Static frequency in parent");
     const frequencyCallback = (childFrequencyData) =>{
@@ -143,14 +133,23 @@ function App() {
     console.log(traineeData.trainee_level_id);
     console.log(traineeData.trainee_objective_id);
     
-  }
+    fetch('http://localhost:4000/user2', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(traineeData),
+        })
+        .then(response => response.json())
+        .then(traineeData => {
+        console.log('Success:', traineeData);
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+        console.log("Acabo la petición POST de trainee data");
 
-  const [pdf, setPdf] = useState("Static parent, pdf not send");
-  const pdfCallback = (childPdfData)=>{
-    setPdf((pdf)=>{
-      pdf = childPdfData;
-      return pdf;
-    })
+    
   }
 
   return (

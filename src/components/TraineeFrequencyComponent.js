@@ -21,7 +21,20 @@ const TraineeFrequencyComponent = (props) =>{
   },[] );
 
   const selectHandler = (e) =>{
-  props.parentCallback(e.target.value);
+  var id = "";
+  switch (e.target.value){
+    case "3 dias por semana":
+      id=1;
+      break;
+    case "4 dias por semana":
+      id=2;
+      break;
+    case "5 dias por semana":
+      id=3;
+      break;
+  }
+  console.log("valor de id frequency:"+id)
+  props.parentCallback(id);
  
 }
 

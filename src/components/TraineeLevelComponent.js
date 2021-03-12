@@ -21,7 +21,20 @@ const TraineeLevelComponent = (props) =>{
   },[] );
 
 const selectHandler = (e) =>{
-  props.parentCallback(e.target.value);
+  var id = "";
+  switch (e.target.value){
+    case "novato (0-1 años)":
+      id=1;
+      break;
+    case "intermedio (1-3 años)":
+      id=2;
+      break;
+    case "avanzado (más de 3 años)":
+      id=3;
+      break;
+  }
+  console.log("Valur of level id:"+ id)
+  props.parentCallback(id);
 }
 
 

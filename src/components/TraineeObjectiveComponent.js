@@ -22,7 +22,20 @@ const TraineeObjectiveComponent = (props) =>{
 
   //const selectRef = useRef();
   const selectHandler = e => {
-    props.parentCallback(e.target.value);
+    var id = "";
+  switch (e.target.value){
+    case "Bajar de peso":
+      id=1;
+      break;
+    case "Subir de peso":
+      id=2;
+      break;
+    case "Mantener peso":
+      id=3;
+      break;
+  }
+  console.log("Valur of objective id:"+ id)
+    props.parentCallback(id);
   }
 
 return (
