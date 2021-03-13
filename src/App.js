@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
 
@@ -99,9 +99,29 @@ function App() {
       trainee_objective_id:"",
     }
   );
+
+  useEffect(()=>{
+    fetch('http://localhost:4000/user2', {
+      method: 'POST', // or 'PUT'
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(traineeData),
+      })
+      .then(response => response.json())
+      .then(traineeData => {
+      console.log('Success:', traineeData);
+      })
+      .catch((error) => {
+      console.error('Error:', error);
+      });
+      console.log("Acabo la petición POST de trainee data");
+  },[traineeData]);
+
   const getTraineeData = (e)=>{
     
-    setTraineeData((traineeData)=>{
+    
+    /* setTraineeData((traineeData)=>{
       traineeData.trainee_name = mailParameters.firstName+ " "+mailParameters.lastName;
       traineeData.trainee_age = age;
       traineeData.trainee_gender = gender;
@@ -110,9 +130,23 @@ function App() {
       traineeData.trainee_level_id = level;
       traineeData.trainee_objective_id = objective;
       return traineeData;
-    }
-    
+    }    
+    ); */
+    setTraineeData({     
+        trainee_name:mailParameters.firstName+ " "+mailParameters.lastName,
+        trainee_age:age,
+        trainee_gender:gender,
+        trainee_email:mailParameters.email,
+        trainee_frequency_id:frequency,
+        trainee_level_id:level,
+        trainee_objective_id:objective,
+      
+    } 
     );
+    console.log("Outside setTraineeData function")
+    console.log(traineeData)
+    
+    
     
     /* setTraineeData((traineeData)=>{
       traineeData.trainee_name = "jose wrym";
@@ -133,43 +167,70 @@ function App() {
     console.log(traineeData.trainee_level_id);
     console.log(traineeData.trainee_objective_id);
     
-    fetch('http://localhost:4000/user2', {
-        method: 'POST', // or 'PUT'
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(traineeData),
-        })
-        .then(response => response.json())
-        .then(traineeData => {
-        console.log('Success:', traineeData);
-        })
-        .catch((error) => {
-        console.error('Error:', error);
-        });
-        console.log("Acabo la petición POST de trainee data");
+    
 
     
   }
 
   return (
     
-    
+      
     <div>
-      <button type="button" onClick={getTraineeData}>Download PDF</button>
+      
+      <div class="grid-container">
+  <div class="grid-item">
+    <h1 class="title">MIJIGYM</h1>
+     
+  </div>
+  <div class="grid-item">
+    <h2>Pequeños cambios, Grandes resultados</h2>
+  </div>
+  <div class="grid-item">
+    <img src="mijigym_logo.svg" alt="mijigym_logo.svg" width="100" border="0">
+      </img>
+  </div>  
+  
+  <div class="grid-item"> 
+     <div></div>
       <TraineeFrequencyComponent parentCallback={frequencyCallback}/>
+      <div></div>
       <TraineeLevelComponent parentCallback={levelCallback}/>
-      <TraineeObjectiveComponent parentCallback={objectiveCallback}/>
-      <p>Value from FrequencyComp then TrainingComp then App:{frequency +" "+ level + " " + objective}</p>
-      <MailComponent parentCallback={mailCallback}/>
-      <p>Value from Mail name then App: {mailParameters.firstName+ " "+mailParameters.lastName}</p>
-      <p>Value from Mail email then App: {mailParameters.email}</p>
-      <RadioButtonComponent parentCallback={genderCallback}/>
+      <div></div>
+      <TraineeObjectiveComponent parentCallback={objectiveCallback}/></div>
+  <div class="grid-item">
+  <RadioButtonComponent parentCallback={genderCallback}/>
       <p>Value from gender callback:{gender}</p>
       <DiscreteSlider parentCallback={ageCallback}/>
       <p>Value from age callback:{age}</p>
-      <RecommendationComponent recommendationsProps={recommendations}/>
-      <VideoComponent videos={videos} />
+  </div>
+  <div class="grid-item">
+  <MailComponent parentCallback={mailCallback}/>
+  <div></div>
+  <button type="button" onClick={getTraineeData}>Download PDF</button>
+  
+    </div>   
+    <div class="grid-item">
+  
+    </div>   
+  <div class="grid-item">
+  <RecommendationComponent recommendationsProps={recommendations}/>
+  </div>
+  <div class="grid-item">
+  <VideoComponent videos={videos} />
+  </div>
+  <div class="grid-item">
+  <p>Value from FrequencyComp then TrainingComp then App:{frequency +" "+ level + " " + objective}</p>
+      
+      <p>Value from Mail name then App: {mailParameters.firstName+ " "+mailParameters.lastName}</p>
+      <p>Value from Mail email then App: {mailParameters.email}</p>
+     
+    </div> 
+</div>
+     
+      <div></div>
+      
+      
+     
     </div>
     
   );

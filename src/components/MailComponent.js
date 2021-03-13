@@ -33,7 +33,7 @@ const MailComponent = (props) => {
 
 
 
-        fetch('http://localhost:4000/user', {
+        /* fetch('http://localhost:4000/user', {
         method: 'POST', // or 'PUT'
         headers: {
             'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const MailComponent = (props) => {
         })
         .catch((error) => {
         console.error('Error:', error);
-        });
+        }); */
         console.log("Acabo la petición POST");
                 
     }
