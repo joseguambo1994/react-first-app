@@ -108,7 +108,12 @@ function App() {
       },
       body: JSON.stringify(traineeData),
       })
-      .then(response => response.json())
+      .then(response => {
+        console.log("Response from Node JS, CONTAINING trainee_recom");
+        console.log(response.json);
+        return response.json()
+        
+      })
       .then(traineeData => {
       console.log('Success:', traineeData);
       })
@@ -116,6 +121,7 @@ function App() {
       console.error('Error:', error);
       });
       console.log("Acabo la petición POST de trainee data");
+
   },[traineeData]);
 
   const getTraineeData = (e)=>{
