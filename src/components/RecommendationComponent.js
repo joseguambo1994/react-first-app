@@ -2,7 +2,7 @@ import React from 'react'
 
 const RecommendationComponent=(props)=>{
     const recommendationList = props.recommendationsProps.map(element =>
-        <li>{element.recommendation_text}</li>
+        <li>{element.text}</li>
         );
 
     

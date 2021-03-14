@@ -44,10 +44,7 @@ function App() {
 
   const [frequency,setFrequency] = useState("Static frequency in parent");
     const frequencyCallback = (childFrequencyData) =>{
-        setFrequency((frequency)=>{
-          frequency = childFrequencyData;
-          return frequency;
-        });
+        setFrequency(childFrequencyData);
     }
     const [level,setLevel] = useState("Static frequency in parent");
     
@@ -63,17 +60,11 @@ function App() {
 
   const [gender,setGender]=useState("Static gender in parent");
   const genderCallback = (childGenderData)=>{
-    setGender(gender=>{
-      gender = childGenderData;
-      return gender
-    });
+    setGender(childGenderData);
   }
   const [age,setAge]=useState("Static age in parent");
   const ageCallback = (childAgeData)=>{
-    setAge(age=>{
-      age= childAgeData;
-      return age;
-    });
+    setAge(childAgeData);
   }
 
   const [mailParameters,setMailParameters]=useState(
@@ -100,7 +91,15 @@ function App() {
     }
   );
 
+  
+
+  var recommendation = [];
+ 
+
   useEffect(()=>{
+    console.log("useEFFECT")
+    console.log("Value of trainee data")
+    console.log(traineeData)
     fetch('http://localhost:4000/user2', {
       method: 'POST', // or 'PUT'
       headers: {
@@ -108,70 +107,54 @@ function App() {
       },
       body: JSON.stringify(traineeData),
       })
-      .then(response => {
-        console.log("Response from Node JS, CONTAINING trainee_recom");
-        console.log(response.json);
-        return response.json()
-        
-      })
+      .then(response => response.json())
       .then(traineeData => {
       console.log('Success:', traineeData);
+      recommendation = traineeData;
       })
       .catch((error) => {
       console.error('Error:', error);
       });
-      console.log("Acabo la petición POST de trainee data");
+      console.log("Acabo la petición POST de trainee data para" + traineeData.trainee_name);
 
   },[traineeData]);
 
   const getTraineeData = (e)=>{
-    
-    
-    /* setTraineeData((traineeData)=>{
-      traineeData.trainee_name = mailParameters.firstName+ " "+mailParameters.lastName;
-      traineeData.trainee_age = age;
-      traineeData.trainee_gender = gender;
-      traineeData.trainee_email = mailParameters.email;
-      traineeData.trainee_frequency_id = frequency;
-      traineeData.trainee_level_id = level;
-      traineeData.trainee_objective_id = objective;
-      return traineeData;
-    }    
-    ); */
-    setTraineeData({     
-        trainee_name:mailParameters.firstName+ " "+mailParameters.lastName,
-        trainee_age:age,
-        trainee_gender:gender,
-        trainee_email:mailParameters.email,
-        trainee_frequency_id:frequency,
-        trainee_level_id:level,
-        trainee_objective_id:objective,
-      
-    } 
-    );
-    console.log("Outside setTraineeData function")
-    console.log(traineeData)
-    
-    
-    
-    /* setTraineeData((traineeData)=>{
-      traineeData.trainee_name = "jose wrym";
-      traineeData.trainee_age = "25";
-      traineeData.trainee_gender = "hombre";
-      traineeData.trainee_email = "jose@wrym.com";
-      traineeData.trainee_frequency_id = "3 dias";
-      traineeData.trainee_level_id = "avanzado";
-      traineeData.trainee_objective_id = "bajar de peso";
-      return traineeData;
+    // console.log("Current value of individual components")
+    // console.log("name"+mailParameters.firstName+ " "+mailParameters.lastName)
+    // console.log("age:"+age)
+    // console.log("gender:"+gender)
+    // console.log("mail:"+mailParameters)
+    // console.log("frequency:"+frequency)
+    // console.log("level:"+level)
+    // console.log("objective:"+objective)
+
+
+    // console.log("traineeData inside getTraineeData (clickHandler)")
+    // console.log(traineeData)
+
+    const nuevo = {
+          trainee_name:mailParameters.firstName+ " "+mailParameters.lastName,
+          trainee_age:age,
+          trainee_gender:gender,
+          trainee_email:mailParameters.email,
+          trainee_frequency_id:frequency,
+          trainee_level_id:level,
+          trainee_objective_id:objective,
     }
-    ); */
-    console.log(traineeData.trainee_name);
-    console.log(traineeData.trainee_age);
-    console.log(traineeData.trainee_gender);
-    console.log(traineeData.trainee_email);
-    console.log(traineeData.trainee_frequency_id);
-    console.log(traineeData.trainee_level_id);
-    console.log(traineeData.trainee_objective_id);
+    console.log(nuevo);
+    setTraineeData(nuevo);
+  // console.log("traineeData inside getTraineeData AFTER setState)")
+  //   console.log(traineeData)
+  //   console.log(traineeData.trainee_name);
+  //   console.log(traineeData.trainee_age);
+  //   console.log(traineeData.trainee_gender);
+  //   console.log(traineeData.trainee_email);
+  //   console.log(traineeData.trainee_frequency_id);
+  //   console.log(traineeData.trainee_level_id);
+  //   console.log(traineeData.trainee_objective_id);
+  
+
     
     
 
@@ -219,7 +202,7 @@ function App() {
   
     </div>   
   <div class="grid-item">
-  <RecommendationComponent recommendationsProps={recommendations}/>
+  <RecommendationComponent recommendationsProps={recommendation}/>
   </div>
   <div class="grid-item">
   <VideoComponent videos={videos} />

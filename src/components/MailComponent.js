@@ -30,23 +30,6 @@ const MailComponent = (props) => {
             return state;
         }}
         );
-
-
-
-        /* fetch('http://localhost:4000/user', {
-        method: 'POST', // or 'PUT'
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(state),
-        })
-        .then(response => response.json())
-        .then(state => {
-        console.log('Success:', state);
-        })
-        .catch((error) => {
-        console.error('Error:', error);
-        }); */
         console.log("Acabo la petición POST");
                 
     }
