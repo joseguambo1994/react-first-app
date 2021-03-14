@@ -1,9 +1,9 @@
 import React from 'react'
 
-const VideoComponent = (props) =>{
+const VideoComponent = (recommendation) =>{
     const youtubeUrlFormat = "https://www.youtube.com/embed/";
-    const listVideos = props.videos.map( item =>
-        <iframe width="430" height="185" src={youtubeUrlFormat+item.video_url} frameborder="0" 
+    const listVideos = recommendation.recommendation.map( item =>
+        <iframe width="560" height="315" src={youtubeUrlFormat+recommendation.video} frameborder="0" 
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     
     );

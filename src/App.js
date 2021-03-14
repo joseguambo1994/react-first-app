@@ -38,8 +38,8 @@ function App() {
   ]
 
   const videos=[
-    {id:1, video_url:"2aYrGSPZmpk"},
-    {id:2, video_url:"N8c6H5prJkA"}
+    {id:1, video:"Kb24RrHIbFk"},
+    {id:2, video:"N8c6H5prJkA"}
   ]
 
   const [frequency,setFrequency] = useState("Static frequency in parent");
@@ -91,10 +91,11 @@ function App() {
     }
   );
 
-  
+  const [recommendation, setRecommendation] = useState([]);
 
-  var recommendation = [];
- 
+  useEffect(()=>{
+    console.log("Recommendation was updated")
+  },[recommendation]);
 
   useEffect(()=>{
     console.log("useEFFECT")
@@ -110,7 +111,7 @@ function App() {
       .then(response => response.json())
       .then(traineeData => {
       console.log('Success:', traineeData);
-      recommendation = traineeData;
+      setRecommendation(traineeData);
       })
       .catch((error) => {
       console.error('Error:', error);
@@ -205,7 +206,7 @@ function App() {
   <RecommendationComponent recommendationsProps={recommendation}/>
   </div>
   <div class="grid-item">
-  <VideoComponent videos={videos} />
+  <VideoComponent recommendation={videos} />
   </div>
   <div class="grid-item">
   <p>Value from FrequencyComp then TrainingComp then App:{frequency +" "+ level + " " + objective}</p>
