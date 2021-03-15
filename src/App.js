@@ -38,7 +38,7 @@ function App() {
   ]
 
   const videos=[
-    {id:1, video:"Kb24RrHIbFk"},
+    {id:1, video:"6qD5YO-vqzc"},
     {id:2, video:"N8c6H5prJkA"}
   ]
 
@@ -173,52 +173,55 @@ function App() {
      
   </div>
   <div class="grid-item">
-    <h2>Pequeños cambios, Grandes resultados</h2>
+    <h2 class="subtitle">Pequeños cambios, Grandes resultados</h2>
   </div>
-  <div class="grid-item">
+  <div class="grid-item logo">
     <img src="mijigym_logo.svg" alt="mijigym_logo.svg" width="100" border="0">
       </img>
   </div>  
   
-  <div class="grid-item"> 
-     <div></div>
+  <div class="grid-item frequency"> 
+  
+     <div>
+     <p>Selecciona los dias a la semana que</p>
+       </div>
       <TraineeFrequencyComponent parentCallback={frequencyCallback}/>
-      <div></div>
+      <div>
+        <p>Experiencia previa</p>
+        </div>
       <TraineeLevelComponent parentCallback={levelCallback}/>
-      <div></div>
+      <div>
+      <p>Objetivo </p>
+      </div>
       <TraineeObjectiveComponent parentCallback={objectiveCallback}/></div>
   <div class="grid-item">
+    <div>
+      <p>Género</p>
+    </div>
   <RadioButtonComponent parentCallback={genderCallback}/>
-      <p>Value from gender callback:{gender}</p>
+  <div>
+      <p>Edad</p>
+    </div>
       <DiscreteSlider parentCallback={ageCallback}/>
-      <p>Value from age callback:{age}</p>
+      
   </div>
-  <div class="grid-item">
+  <div class="grid-item mail">
   <MailComponent parentCallback={mailCallback}/>
   <div></div>
-  <button type="button" onClick={getTraineeData}>Download PDF</button>
+  <button id="pdfButton" type="button" onClick={getTraineeData}>Download PDF</button>
   
     </div>   
-    <div class="grid-item">
-  
-    </div>   
-  <div class="grid-item">
+    <div class="list">
+    <h1>Lista de recomendaciones</h1>
   <RecommendationComponent recommendationsProps={recommendation}/>
   </div>
   <div class="grid-item">
-  <VideoComponent recommendation={videos} />
+    <h1>Videos recomendados</h1>
+  <VideoComponent recommendation={recommendation} />
   </div>
-  <div class="grid-item">
-  <p>Value from FrequencyComp then TrainingComp then App:{frequency +" "+ level + " " + objective}</p>
-      
-      <p>Value from Mail name then App: {mailParameters.firstName+ " "+mailParameters.lastName}</p>
-      <p>Value from Mail email then App: {mailParameters.email}</p>
-     
-    </div> 
-</div>
-     
-      <div></div>
-      
+  
+  </div>
+    
       
      
     </div>

@@ -4,24 +4,85 @@
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
+  text-align: justify;
+  text-justify: inter-word;
+ 
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: 40% 30% 30%;
-  grid-template-rows: 5% 15%;
+  grid-template-columns: 34% 33% 33%;
+  grid-template-rows: auto auto auto ;
 }
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+
   padding: 10px;
-  
-  text-align: left;
+  border: 1px;
+  border-style: solid;
 
 }
-.title {
+
+/* .grid-item.gender {
+  text-align: left;
+  margin-left: 1em;
   font-size: 1.5em;
+  padding: 40px;
+} */
+.grid-item.frequency {
+
+
+}
+
+.grid-item.mail {
+  background-color: #A4DAFC;
+
+}
+.list {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.title {
+  font-size: 2em;
+  text-align: center;
+  padding: 0.5em;
+}
+.subtitle {
+  font-size: 1em;
+  text-align: center;
+  padding: 0.5em;
 }
 h2{
   font-size: 1em;
+}
+
+ul {
+  line-height: 1.5em;
+  margin: 5px 0 15px;
+  padding: 10px;
+}
+
+li {
+  list-style: none;
+  position: relative;
+  padding: 0 0 0 20px;
+}
+#pdfButton{
+  background-color: #885DBD; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  margin: 5px 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 100%;
+}
+.grid-item.logo{
+  float: right;
+  align-items: center;
+  align-content: center;
+  padding: 1em;
 }

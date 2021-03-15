@@ -6,7 +6,7 @@ import Slider from '@material-ui/core/Slider';
 var actualValue = "";
 const useStyles = makeStyles({
   root: {
-    width: 300,
+    width: 240,
   },
 });
 
@@ -25,7 +25,7 @@ export default function DiscreteSlider(props) {
   return (
     <div className={classes.root}>
       <Typography id="discrete-slider" gutterBottom>
-        Edad (años)
+       
       </Typography>
       <Slider
         defaultValue={25}

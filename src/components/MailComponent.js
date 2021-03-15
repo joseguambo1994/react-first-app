@@ -1,5 +1,5 @@
 import React,{useState,useRef, useEffect} from 'react'
-
+import './MailComponent.css'
 const MailComponent = (props) => {
     
 
@@ -40,18 +40,16 @@ const MailComponent = (props) => {
                 
             
                 <div>
-                <input type="text" name="firstName" ref={refValueFirstName} />
+                <input class="grid-item mail input" type="text" name="firstName" ref={refValueFirstName} />
                 </div>
             
                 <div>
-                <input type="text" name="lastName" ref={refValueLastName} />
+                <input class="grid-item mail input" type="text" name="lastName" ref={refValueLastName} />
                 </div>
                 <div>
-                <input type="email" name="email" ref={refValueEmail}/>
+                <input class="grid-item mail input" type="email" name="email" ref={refValueEmail}/>
                 </div>
-                <div>
-            <button type="button" onClick={clickHandler}>Registrar Email y nombre </button>
-                </div>        
+             
              </form>
  
     );

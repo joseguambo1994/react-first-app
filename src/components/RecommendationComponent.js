@@ -9,7 +9,6 @@ const RecommendationComponent=(props)=>{
 
     return(
         <>
-        <h1>Lista de recomendaciones</h1>
         <ul>
         {recommendationList}        
         </ul>
