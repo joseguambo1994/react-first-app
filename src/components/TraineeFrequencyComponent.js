@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import React, { useState,useEffect,useRef } from 'react';
 import './TraineeFrequencyComponent.css'
+import { positions } from '@material-ui/system';
 
 const TraineeFrequencyComponent = (props) =>{
 
@@ -46,7 +47,7 @@ const TraineeFrequencyComponent = (props) =>{
 
 
 return (
-  
+  <div class="trainingComponent">
   <TextField id="select" label="Frecuencia"  onChange={selectHandler} ref={frequencyRef} select>
     {state.map(
       item=>(
@@ -54,7 +55,7 @@ return (
       )
     )}
   </TextField>
-  
+  </div>
   
   );
 }

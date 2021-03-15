@@ -12,10 +12,10 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 
     return( 
         <>
-        <div class="video-component">
-        <h1 class="video-title" >Videos recomendados</h1>
+        <div class="video">
         {listVideos}
         </div>
+        
         </>);
 }
 export default VideoComponent

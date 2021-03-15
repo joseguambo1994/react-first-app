@@ -4,7 +4,6 @@
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
-  text-align: justify;
   text-justify: inter-word;
  
 }
@@ -18,7 +17,7 @@
 
   padding: 15px;
   border-style: solid;
-}
+ }
 .grid-item.logo{
   background-color:#b4b3b3 ;
 }
@@ -42,16 +41,18 @@
 .grid-item.training {
   font-size: 1em;
   background-color:#e99ccb ;
-  text-align: right;
  } 
  .grid-item.training.title{
-  text-align: right;
-  align-content: center;
+  text-align: center;
  } 
 
 .grid-item.gender {
  background-color:#FAD0AB ;
 } 
+.grid-item.gender.title {
+  font-size: 1em;
+  align-content: center;
+ } 
 
 .grid-item.mail {
   background-color: #A4DAFC;
@@ -61,18 +62,24 @@
   font-size: 1em;
   margin-bottom: 10px;
 }
-.grid-item.video {
-  background-color: #E0A6F4;
-  grid-column-start: 3;
-  grid-column-end: 4;
-
-}
-
 .grid-item.list {
   background-color: #92f792;
   grid-column-start: 1;
   grid-column-end: 3;
 }
+.grid-item.list.title{
+  font-size: 1em;
+}
+.grid-item.video {
+  background-color: #ff8adc;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+.grid-item.video.title{
+  font-size: 1em;
+}
+
+
 
 .title {
   font-size: 2em;

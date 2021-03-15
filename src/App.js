@@ -193,11 +193,11 @@ function App() {
       </div>
       <TraineeObjectiveComponent parentCallback={objectiveCallback}/></div>
   <div class="grid-item gender">
-    <div>
+  <div class="grid-item gender title">
       <p>Género</p>
     </div>
   <RadioButtonComponent parentCallback={genderCallback}/>
-  <div>
+  <div class="grid-item gender title">
       <p>Edad</p>
     </div>
       <DiscreteSlider parentCallback={ageCallback}/>
@@ -211,10 +211,15 @@ function App() {
   
     </div>   
     <div class="grid-item list">
-  <RecommendationComponent recommendationsProps={recommendation}/>
+      <div class="grid-item list title" >
+      <h1 >Tips de entrenamiento</h1>
+      </div>
+     <RecommendationComponent recommendationsProps={recommendation}/>
   </div>
   <div class="grid-item video" >
-    
+  <div class="grid-item video title" >
+      <h1 >Videos recomendados</h1>
+      </div>
   <VideoComponent recommendation={recommendation} />
   </div>
   

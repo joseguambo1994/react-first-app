@@ -1,12 +1,13 @@
 #genderRadioButton{
-    margin-left: 1em;
-    font-size: 1em;
-    padding-left: 0.5em;
-    padding: 1em;
+    
+
+    padding: 1.5em;
+    text-align: center;
 
 }
 #genderLabel{
-    margin-left: 1em;
-    font-size: 1em;
-    padding-left: 0.25em;
+
+    font-size: 1.25em;
+    padding-right:2em;
+    padding-left:0.5em;
 }

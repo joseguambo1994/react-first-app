@@ -5,6 +5,7 @@ import FormLabel from '@material-ui/core'
 import FormRadio from '@material-ui/core'
 import RadioGroup from '@material-ui/core'
 import './RadioButtonComponent.css'
+import GenderImageComponent from './GenderImageComponent'
 
 
 
@@ -20,9 +21,9 @@ const RadioButtonComponent = (props)=>{
     return (
         <>
         <div id="genderRadioButton">
-        <input  type="radio" id="male" name="gender" value="hombre" onClick={selectMale}  />
-        <label id="genderLabel"  for="male">Hombre</label><br/>
-        <input  type="radio" id="female" name="gender" value="mujer" onClick={selectFemale} />
+        <input type="radio" id="male" name="gender" value="hombre" onClick={selectMale}  />
+        <label id="genderLabel"  for="male">Hombre</label>
+        <input   type="radio" id="female" name="gender" value="mujer" onClick={selectFemale} />
         <label id="genderLabel" for="female">Mujer</label>
         </div>
         </>
