@@ -4,11 +4,11 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import React, { useState,useEffect,useRef } from 'react';
-
+import './TraineeFrequencyComponent.css'
 
 const TraineeFrequencyComponent = (props) =>{
 
-  const [state, setState]  = useState([]);
+  const [state, setState]  = useState(["Seleccione"]);
 
   useEffect(()=>{
     fetch('http://localhost:4000/training/frequency')
@@ -16,9 +16,15 @@ const TraineeFrequencyComponent = (props) =>{
   .then(data => {
     console.log("Data fetch from API")
     console.log(data)
-    setState((state) => data.map(item=>item.trainee_frequency_type) );
+    setState(data.map(item=>item.trainee_frequency_type) );
   });
   },[] );
+
+  const frequencyRef = useRef();
+  
+  useEffect(()=>{
+    console.log("Change in state of frequency")
+  },[state]);
 
   const selectHandler = (e) =>{
   var id = "";
@@ -40,15 +46,16 @@ const TraineeFrequencyComponent = (props) =>{
 
 
 return (
-  <>
-  <TextField id="select" label="Frecuencia" value={state[0]} onChange={selectHandler} select>
+  
+  <TextField id="select" label="Frecuencia"  onChange={selectHandler} ref={frequencyRef} select>
     {state.map(
       item=>(
         <MenuItem value={item}>{item}</MenuItem>
       )
     )}
   </TextField>
-  </>
+  
+  
   );
 }
 export default TraineeFrequencyComponent;

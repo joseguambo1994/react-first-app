@@ -168,33 +168,31 @@ function App() {
     <div>
       
       <div class="grid-container">
-  <div class="grid-item">
-    <h1 class="title">MIJIGYM</h1>
-     
-  </div>
-  <div class="grid-item">
-    <h2 class="subtitle">Pequeños cambios, Grandes resultados</h2>
-  </div>
-  <div class="grid-item logo">
-    <img src="mijigym_logo.svg" alt="mijigym_logo.svg" width="100" border="0">
+      <div class="grid-item logo">
+    <img class="grid-item logo image" src="mijigym_logo.svg" alt="mijigym_logo.svg" width="100" border="0">
       </img>
   </div>  
+  <div class="grid-item title">
+    <h1 class="grid-item title h1">MIJIGYM</h1>
+    <h2 class="grid-item title h2">Pequeños cambios, Grandes resultados</h2>
+  </div>
   
-  <div class="grid-item frequency"> 
   
-     <div>
-     <p>Selecciona los dias a la semana que</p>
+  <div class="grid-item training"> 
+  
+     <div class="grid-item training title">
+     <p>Frecuencia</p>
        </div>
       <TraineeFrequencyComponent parentCallback={frequencyCallback}/>
-      <div>
+      <div class="grid-item training title">
         <p>Experiencia previa</p>
         </div>
       <TraineeLevelComponent parentCallback={levelCallback}/>
-      <div>
+      <div class="grid-item training title">
       <p>Objetivo </p>
       </div>
       <TraineeObjectiveComponent parentCallback={objectiveCallback}/></div>
-  <div class="grid-item">
+  <div class="grid-item gender">
     <div>
       <p>Género</p>
     </div>
@@ -206,17 +204,17 @@ function App() {
       
   </div>
   <div class="grid-item mail">
+    <h1 class="grid-item mail title"> Datos personales </h1>
   <MailComponent parentCallback={mailCallback}/>
   <div></div>
   <button id="pdfButton" type="button" onClick={getTraineeData}>Download PDF</button>
   
     </div>   
-    <div class="list">
-    <h1>Lista de recomendaciones</h1>
+    <div class="grid-item list">
   <RecommendationComponent recommendationsProps={recommendation}/>
   </div>
-  <div class="grid-item">
-    <h1>Videos recomendados</h1>
+  <div class="grid-item video" >
+    
   <VideoComponent recommendation={recommendation} />
   </div>
   
