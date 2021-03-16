@@ -10,11 +10,16 @@ import GenderImageComponent from './GenderImageComponent'
 
 
 const RadioButtonComponent = (props)=>{
-    
+
+    const [errorGender,setErrorGender] = useState("Incomplete");
+
     const selectMale = (e) =>{
+        setErrorGender(null);
         props.parentCallback(e.target.value);
+
     }
     const selectFemale = (e) =>{
+        setErrorGender(null);
         props.parentCallback(e.target.value);
     }
        

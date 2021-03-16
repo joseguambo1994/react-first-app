@@ -42,16 +42,16 @@ function App() {
     {id:2, video:"N8c6H5prJkA"}
   ]
 
-  const [frequency,setFrequency] = useState("Static frequency in parent");
+  const [frequency,setFrequency] = useState("");
     const frequencyCallback = (childFrequencyData) =>{
         setFrequency(childFrequencyData);
     }
-    const [level,setLevel] = useState("Static frequency in parent");
+    const [level,setLevel] = useState("");
     
     const levelCallback = (childLevelData) =>{
         setLevel(childLevelData);
     }
-    const [objective,setObjective] = useState("Static frequency in parent");
+    const [objective,setObjective] = useState("");
 
     const objectiveCallback = (childObjectiveData) =>{
         setObjective(childObjectiveData);
@@ -60,8 +60,10 @@ function App() {
 
   const [gender,setGender]=useState("Static gender in parent");
   const genderCallback = (childGenderData)=>{
-    setGender(childGenderData);
-  }
+    
+      setGender(childGenderData);
+
+      }
   const [age,setAge]=useState("Static age in parent");
   const ageCallback = (childAgeData)=>{
     setAge(childAgeData);
@@ -133,7 +135,28 @@ function App() {
 
     // console.log("traineeData inside getTraineeData (clickHandler)")
     // console.log(traineeData)
-
+    if (frequency==null ||frequency==""){
+      alert("Seleccione una frequencia");
+      return false;
+    } else if (level==null ||level==""){
+      alert("Seleccione su experiencia o nivel de entrenamiento");
+      return false;
+    } else if (objective==null ||objective==""){
+      alert("Seleccione su objetivo");
+      return false;
+    }  else if (mailParameters.firstName==null ||mailParameters.firstName==""
+      || mailParameters.lastName==null ||mailParameters.lastName=="" 
+      || mailParameters.email==null ||mailParameters.email==""
+    ){
+      alert("Presione Registrar");
+      return false;
+    } else if (age==null ||age==""){
+      alert("Seleccione su edad");
+      return false;
+    } else if (gender==null ||gender==""){
+      alert("Seleccione su género");
+      return false;
+    } 
     const nuevo = {
           trainee_name:mailParameters.firstName+ " "+mailParameters.lastName,
           trainee_age:age,
@@ -144,20 +167,7 @@ function App() {
           trainee_objective_id:objective,
     }
     console.log(nuevo);
-    setTraineeData(nuevo);
-  // console.log("traineeData inside getTraineeData AFTER setState)")
-  //   console.log(traineeData)
-  //   console.log(traineeData.trainee_name);
-  //   console.log(traineeData.trainee_age);
-  //   console.log(traineeData.trainee_gender);
-  //   console.log(traineeData.trainee_email);
-  //   console.log(traineeData.trainee_frequency_id);
-  //   console.log(traineeData.trainee_level_id);
-  //   console.log(traineeData.trainee_objective_id);
-  
-
-    
-    
+    setTraineeData(nuevo);   
 
     
   }
@@ -183,15 +193,23 @@ function App() {
      <div class="grid-item training title">
      <p>Frecuencia</p>
        </div>
+       <div class="grid-item training select">
       <TraineeFrequencyComponent parentCallback={frequencyCallback}/>
+      </div>
       <div class="grid-item training title">
         <p>Experiencia previa</p>
         </div>
+        <div class="grid-item training select">
       <TraineeLevelComponent parentCallback={levelCallback}/>
+      </div>
       <div class="grid-item training title">
       <p>Objetivo </p>
       </div>
-      <TraineeObjectiveComponent parentCallback={objectiveCallback}/></div>
+      <div class="grid-item training select">
+      <TraineeObjectiveComponent parentCallback={objectiveCallback}/>
+      </div>
+    </div>
+    
   <div class="grid-item gender">
   <div class="grid-item gender title">
       <p>Género</p>
@@ -200,14 +218,15 @@ function App() {
   <div class="grid-item gender title">
       <p>Edad</p>
     </div>
+    <div class="grid-item gender age">
       <DiscreteSlider parentCallback={ageCallback}/>
-      
+      </div>
   </div>
   <div class="grid-item mail">
     <h1 class="grid-item mail title"> Datos personales </h1>
   <MailComponent parentCallback={mailCallback}/>
   <div></div>
-  <button id="pdfButton" type="button" onClick={getTraineeData}>Download PDF</button>
+  <button id="pdfButton" type="button" onClick={getTraineeData}>Generar Recomendaciones</button>
   
     </div>   
     <div class="grid-item list">

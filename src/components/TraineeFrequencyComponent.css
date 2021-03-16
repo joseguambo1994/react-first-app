@@ -1,14 +1,14 @@
 #select{
     background-color: white;
  
-    padding: 8px 20px;
-  margin: 5px 0;
+
   border-radius: 10px;
   border: solid;
   border-color: gray;
-  margin-bottom: 1em;
   width: 100%;
   box-sizing: border-box;
+  min-width: 130px;
+  padding: 10px;
 }
 
 
